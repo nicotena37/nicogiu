@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lettera con Domande</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #add8e6; /* Sfondo azzurro */
+            text-align: center;
+            font-family: 'Georgia', serif; /* Font Georgia */
+            position: relative; /* Per posizionare gli sfondi */
+            overflow: hidden; /* Nasconde eventuali fuoriuscite */
+        }
+        #envelope {
+            cursor: pointer;
+            animation: heartbeat 1s infinite; /* Animazione battito per la busta */
+            margin-bottom: 20px; /* Spazio sotto la busta */
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        #arrow {
+            font-size: 100px; /* Dimensione della freccia aumentata */
+            margin-bottom: 10px; /* Spazio sotto la freccia */
+        }
+        .answer-box {
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid #000;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="envelope" src="busta.png" alt="Busta" width="300" onclick="startQuestions()"> <!-- Immagine della busta -->
+        <div style="font-size: 24px; margin-top: 10px;">Premi sulla lettera per aprirla</div> <!-- Testo senza riquadro e cuore -->
+    </div>
+
+    <script>
+        function startQuestions() {
+            if (confirm("per essere sicuri che sia tu, rispondi a queste domande. vuoi continuare?")) {
+                askFirstQuestion(); // Inizia a porre la prima domanda
+            }
+        }
+
+        function askFirstQuestion() {
+            const answer = prompt("1. GIORNO PRIMA USCITA INSIEME? (Formato accettato: 02/12/2022, 02/12/22, 2/12/22)");
+            const correctAnswers = ["02/12/2022", "02/12/22", "2/12/22"];
+
+            if (correctAnswers.includes(answer)) {
+                alert("✅ UNICA VOLTA CHE HAI PRESO LA MACCHINA DI TUA MADRE");
+                askSecondQuestion(); // Chiedi la seconda domanda
+            } else {
+                alert("❣️ NON TI RICORDI BENE, CRETINA.");
+            }
+        }
+
+        function askSecondQuestion() {
+            document.body.innerHTML = `
+                <h2>2. CHI ERA IN RITARDO?</h2>
+                <div class="answer-box" onclick="handleSecondAnswer('nico')">NICO</div>
+                <div class="answer-box" onclick="handleSecondAnswer('giulia')">GIULIA</div>
+            `;
+        }
+
+        function handleSecondAnswer(answer) {
+            if (answer.toLowerCase() === 'giulia') {
+                alert("✅ UNICA VOLTA CHE IO ERO IN ORARIO E TU IN RITARDO");
+                askThirdQuestion();
+            } else {
+                alert("❣️ NON STAI DICENDO LA VERITÀ");
+            }
+        }
+
+        function askThirdQuestion() {
+            const answer = prompt("3. COMPLETA LA FRASE: 'NON VOGLIO PIÙ TORNARE DA TE, STO PENSANDO DI CAMBIARE...'");
+            const correctAnswer = "città";
+
+            if (answer.toLowerCase() === correctAnswer) {
+                alert("✅ CORRETTO!");
+                askFourthQuestion();
+            } else {
+                alert("❣️ NON È CORRETTO.");
+            }
+        }
+
+        function askFourthQuestion() {
+            document.body.innerHTML = `
+                <h2>4. I FARMACI OMEOPATICI SERVONO A QUALCOSA?</h2>
+                <div class="answer-box" onclick="handleFourthAnswer()">NO.</div>
+                <div class="answer-box" onclick="handleFourthAnswer()">NO PERÒ SOTTO.</div>
+            `;
+        }
+
+        function handleFourthAnswer() {
+            alert("Ora che sono sicuro che sia tu, ti ho lasciato una lettera per leggerla. Schiaccia continua per accedere.");
+            document.body.innerHTML = `
+                <div style="text-align:center;">
+                    <button onclick="location.href='pergamena.html'" style="font-size: 20px; padding: 10px 20px;">Continua</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
