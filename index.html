@@ -59,14 +59,14 @@
         }
 
         function askFirstQuestion() {
-            const answer = prompt("1. GIORNO PRIMA USCITA INSIEME? (Formato accettato: 02/12/2022, 02/12/22, 2/12/22)");
+            const answer = prompt("1. GIORNO PRIMA USCITA INSIEME? 00/00/0000");
             const correctAnswers = ["02/12/2022", "02/12/22", "2/12/22"];
 
             if (correctAnswers.includes(answer)) {
-                alert("✅ UNICA VOLTA CHE HAI PRESO LA MACCHINA DI TUA MADRE");
+                alert("✅ corretto, unica volte che hai usato l'auto di Paola");
                 askSecondQuestion(); // Chiedi la seconda domanda
             } else {
-                alert("❣️ NON TI RICORDI BENE, CRETINA.");
+                alert("❣️ Non ti ricordi bene,guarda whatsapp.");
             }
         }
 
@@ -80,7 +80,7 @@
 
         function handleSecondAnswer(answer) {
             if (answer.toLowerCase() === 'giulia') {
-                alert("✅ UNICA VOLTA CHE IO ERO IN ORARIO E TU IN RITARDO");
+                alert("✅ Forse anche l'unica volta");
                 askThirdQuestion();
             } else {
                 alert("❣️ NON STAI DICENDO LA VERITÀ");
@@ -93,10 +93,10 @@
 
             // Verifica se la risposta contiene "città"
             if (normalizedAnswer.includes("città")) {
-                alert("✅ CORRETTO!");
+                alert("✅ Giusto! hai buon gusto musicale");
                 askFourthQuestion();
             } else {
-                alert("❣️ NON È CORRETTO.");
+                alert("❣️ Vai a controllare nelle memo vocali.");
             }
         }
 
@@ -109,7 +109,7 @@
         }
 
         function handleFourthAnswer() {
-            alert("Ora che sono sicuro che sia tu, ti ho lasciato una lettera per leggerla. Schiaccia continua per accedere.");
+            alert("Ora che sono sicuro che sei tu, procedi per aprire la lettera");
             document.body.innerHTML = `
                 <div style="text-align:center;">
                     <button onclick="location.href='pergamena.html'" style="font-size: 20px; padding: 10px 20px;">Continua</button>
