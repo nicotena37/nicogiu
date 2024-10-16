@@ -46,8 +46,6 @@
     </style>
 </head>
 <body>
-    <audio id="backgroundMusic" src="canzone.mp3" preload="auto"></audio> <!-- Elemento audio -->
-    
     <div>
         <img id="envelope" src="busta.png" alt="Busta" width="300" onclick="startQuestions()"> <!-- Immagine della busta -->
         <div style="font-size: 24px; margin-top: 10px;">Premi sulla lettera per aprirla</div> <!-- Testo senza riquadro e cuore -->
@@ -55,31 +53,29 @@
 
     <script>
         function startQuestions() {
-            const audio = document.getElementById("backgroundMusic");
-            audio.play(); // Avvia la musica in risposta al clic
-            if (confirm("Per essere sicuri che sia tu, rispondi a queste domande. Vuoi continuare?")) {
+            if (confirm("per essere sicuri che sia tu, rispondi a queste domande. vuoi continuare?")) {
                 askFirstQuestion(); // Inizia a porre la prima domanda
             }
         }
 
         function askFirstQuestion() {
-            const answer = prompt("1. GIORNO PRIMA USCITA INSIEME? (Formato accettato:00/00/0000) ");
+            const answer = prompt("1. GIORNO PRIMA USCITA INSIEME? 00/00/0000");
             const correctAnswers = ["02/12/2022", "02/12/22", "2/12/22"];
 
             if (correctAnswers.includes(answer)) {
-                alert("✅ Corretto, unica volta che hai usato l'auto di Paola");
+                alert("✅ corretto, unica volte che hai usato l'auto di Paola");
                 askSecondQuestion(); // Chiedi la seconda domanda
             } else {
-                alert("❣️ Non ti ricordi bene, guarda WhatsApp.");
+                alert("❣️ Non ti ricordi bene,guarda whatsapp.");
             }
         }
 
         function askSecondQuestion() {
-            document.body.innerHTML = `
+            document.body.innerHTML = 
                 <h2>2. CHI ERA IN RITARDO?</h2>
                 <div class="answer-box" onclick="handleSecondAnswer('nico')">NICO</div>
                 <div class="answer-box" onclick="handleSecondAnswer('giulia')">GIULIA</div>
-            `;
+            ;
         }
 
         function handleSecondAnswer(answer) {
@@ -97,7 +93,7 @@
 
             // Verifica se la risposta contiene "città"
             if (normalizedAnswer.includes("città")) {
-                alert("✅ Giusto! Hai buon gusto musicale");
+                alert("✅ Giusto! hai buon gusto musicale");
                 askFourthQuestion();
             } else {
                 alert("❣️ Vai a controllare nelle memo vocali.");
@@ -105,20 +101,20 @@
         }
 
         function askFourthQuestion() {
-            document.body.innerHTML = `
+            document.body.innerHTML = 
                 <h2>4. I FARMACI OMEOPATICI SERVONO A QUALCOSA?</h2>
                 <div class="answer-box" onclick="handleFourthAnswer()">NO.</div>
                 <div class="answer-box" onclick="handleFourthAnswer()">NO PERÒ SOTTO.</div>
-            `;
+            ;
         }
 
         function handleFourthAnswer() {
             alert("Ora che sono sicuro che sei tu, procedi per aprire la lettera");
-            document.body.innerHTML = `
+            document.body.innerHTML = 
                 <div style="text-align:center;">
                     <button onclick="location.href='pergamena.html'" style="font-size: 20px; padding: 10px 20px;">Continua</button>
                 </div>
-            `;
+            ;
         }
     </script>
 </body>
