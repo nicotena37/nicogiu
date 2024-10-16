@@ -71,11 +71,11 @@
         }
 
         function askSecondQuestion() {
-            document.body.innerHTML = 
+            document.body.innerHTML = `
                 <h2>2. CHI ERA IN RITARDO?</h2>
                 <div class="answer-box" onclick="handleSecondAnswer('nico')">NICO</div>
                 <div class="answer-box" onclick="handleSecondAnswer('giulia')">GIULIA</div>
-            ;
+            `;
         }
 
         function handleSecondAnswer(answer) {
@@ -101,20 +101,20 @@
         }
 
         function askFourthQuestion() {
-            document.body.innerHTML = 
+            document.body.innerHTML = `
                 <h2>4. I FARMACI OMEOPATICI SERVONO A QUALCOSA?</h2>
                 <div class="answer-box" onclick="handleFourthAnswer()">NO.</div>
                 <div class="answer-box" onclick="handleFourthAnswer()">NO PERÒ SOTTO.</div>
-            ;
+            `;
         }
 
         function handleFourthAnswer() {
             alert("Ora che sono sicuro che sei tu, procedi per aprire la lettera");
-            document.body.innerHTML = 
+            document.body.innerHTML = `
                 <div style="text-align:center;">
                     <button onclick="location.href='pergamena.html'" style="font-size: 20px; padding: 10px 20px;">Continua</button>
                 </div>
-            ;
+            `;
         }
     </script>
 </body>
