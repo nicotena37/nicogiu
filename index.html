@@ -89,9 +89,10 @@
 
         function askThirdQuestion() {
             const answer = prompt("3. COMPLETA LA FRASE: 'NON VOGLIO PIÙ TORNARE DA TE, STO PENSANDO DI CAMBIARE...'");
-            const correctAnswer = "città";
+            const normalizedAnswer = answer.toLowerCase().replace(/\s+/g, ''); // Rimuove spazi e converte in minuscolo
 
-            if (answer.toLowerCase() === correctAnswer) {
+            // Verifica se la risposta contiene "città"
+            if (normalizedAnswer.includes("città")) {
                 alert("✅ CORRETTO!");
                 askFourthQuestion();
             } else {
